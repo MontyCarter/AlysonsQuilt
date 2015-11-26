@@ -1,4 +1,4 @@
-server "alysonsquilt.com", :app, :web, :db, :primary => true
+server "alysonsquilt.com", user: "deploy", roles: %w{app web db}, primary: true
 set :deploy_to, "/var/www/dev"
 set :branch, "development"
 
