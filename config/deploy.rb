@@ -21,6 +21,9 @@ set :user, "deploy"
 set :stages, ["development", "production"]
 set :default_stage, "development"
 
+# Symlink'd files
+set :linked_files, ['.env']
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
@@ -29,9 +32,6 @@ set :default_stage, "development"
 
 # Default value for :pty is false
 # set :pty, true
-
-# Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
