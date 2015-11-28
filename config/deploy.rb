@@ -28,7 +28,7 @@ set :linked_files, ['.env']
 
 namespace :deploy do
   task :restart do
-    on roles :app do
+    on roles :all do
       execute :touch, "#{ current_path }/tmp/restart.txt"
     end
   end
