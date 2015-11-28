@@ -27,8 +27,10 @@ set :default_stage, "development"
 set :linked_files, ['.env']
 
 namespace :deploy do
-  task :restart, :roles => :web do
-    run "touch #{ current_path }/tmp/restart.txt"
+  task :restart do
+    on roles(:web) do
+      run "touch #{ current_path }/tmp/restart.txt"
+    end
   end
 end
 
