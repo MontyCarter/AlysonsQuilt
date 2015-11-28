@@ -26,6 +26,8 @@ set :default_stage, "development"
 # deployment.
 set :linked_files, ['.env']
 
+after 'deploy:publishing', 'deploy:restart'
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
