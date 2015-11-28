@@ -26,6 +26,12 @@ set :default_stage, "development"
 # deployment.
 set :linked_files, ['.env']
 
+namespace :deploy do
+  task :restart, :roles => :web do
+    run "touch #{ current_path }/tmp/restart.txt"
+  end
+end
+
 after 'deploy:publishing', 'deploy:restart'
 
 # Default value for :format is :pretty
