@@ -5,6 +5,7 @@ class QuiltController < ApplicationController
   ##
   # Display the main page.
   def index
+
   end
 
 end
