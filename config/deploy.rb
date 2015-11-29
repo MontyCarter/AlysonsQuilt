@@ -21,11 +21,6 @@ set :user, "deploy"
 set :stages, ["development", "production"]
 set :default_stage, "development"
 
-# Symlink'd files. These need to be placed in the shared/ directory
-# on the server. They will be symlink'd to the exact same spot in the
-# deployment.
-set :linked_files, ['.env']
-
 namespace :deploy do
   task :restart do
     on roles :all do

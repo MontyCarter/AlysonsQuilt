@@ -2,6 +2,13 @@ server "alysonsquilt.com", user: "deploy", roles: %w{app web db}, primary: true
 set :deploy_to, "/var/www/www"
 set :branch, "master"
 
+# Symlink'd files. These need to be placed in the shared/ directory
+# on the server. They will be symlink'd to the exact same spot in the
+# deployment.
+#
+# .env contains the secret key used in config/secrets.yml.
+set :linked_files, ['.env']
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
