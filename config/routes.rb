@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
-  get 'foo', to: 'foo#foo_method'
-
   # The priority is based upon order of creation: 
   # first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # Assume HOST = http://www.alysonsquilt.com
+
+  # HOST/ (ROOT)
+  # Routes to QuiltController#index.
+  root 'quilt#index'
+
+  # HOST/quilt
+  # Routes to QuiltController#index.
+  get 'quilt', to: 'quilt#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
