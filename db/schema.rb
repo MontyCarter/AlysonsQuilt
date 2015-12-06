@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129231005) do
+ActiveRecord::Schema.define(version: 20151206224354) do
 
   create_table "squares", force: :cascade do |t|
     t.text     "message"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20151129231005) do
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
+    t.string   "video_thumb_file_name"
+    t.string   "video_thumb_content_type"
+    t.integer  "video_thumb_file_size"
+    t.datetime "video_thumb_updated_at"
   end
 
   create_table "squares_users", id: false, force: :cascade do |t|
