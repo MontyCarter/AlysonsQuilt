@@ -5,5 +5,7 @@ class Square < ActiveRecord::Base
 
   # Join tables
   has_and_belongs_to_many :users
+  has_attachment :photo
+  has_attachment :video
 
 end

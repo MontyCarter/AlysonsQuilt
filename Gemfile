@@ -20,6 +20,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# For images and videos
+gem "paperclip", "~> 4.3"
+
 group :production do
   # For the secret key base in config/secret.yml
   gem 'dotenv-rails'
