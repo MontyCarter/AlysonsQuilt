@@ -81,4 +81,6 @@ Rails.application.configure do
   # the system folder)
   config.x.paperclip_path = 
     ':rails_root/public/system/:attachment/:id/:style/:filename'
+  config.x.paperclip_url = 
+    'system/:attachment/:id/:style/:filename'
 end

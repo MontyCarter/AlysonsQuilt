@@ -28,7 +28,13 @@ if not Rails.env.production?
                   16.times do |i|
                     a << {
                       message: "This is message #{i + 1}.",
-                      users: [ User.find_by(first_name: "fname#{i + 1}") ]
+                      users: [ User.find_by(first_name: "fname#{i + 1}") ],
+
+                      # Attachments
+                      photo_file_name: "photo.png",
+                      video_file_name: "video.mp4",
+                      video_thumb_file_name: "thumb.png"
+
                     }
                   end
                 end
