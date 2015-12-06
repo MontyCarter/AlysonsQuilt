@@ -76,4 +76,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Paperclip, path to attachments (capistrano will not delete stuff in
+  # the system folder)
+  config.x.paperclip_path = 
+    ':rails_root/public/system/:attachment/:id/:style/:filename'
 end

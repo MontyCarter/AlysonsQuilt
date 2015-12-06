@@ -25,5 +25,10 @@ module Quilt
 
     # Paperclip, path to image magick's convert
     Paperclip.options[:command_path] = "/usr/bin/"
+
+    # Paperclip, path to attachments (environments/production.rb 
+    # overwrites this)
+    config.x.paperclip_path = 
+      ':rails_root/public/dev/:attachment/:id/:style/:filename'
   end
 end

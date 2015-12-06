@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   # Routes to QuiltController#index.
   get 'quilt', to: 'quilt#index'
 
+  # HOST/squares
+  # Routes to SquareController#index.
+  get 'squares', to: 'squares#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

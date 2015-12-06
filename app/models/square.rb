@@ -1,11 +1,8 @@
 class Square < ActiveRecord::Base
 
-  # Accessors
-  attr_accessor :message
-
   # Join tables
   has_and_belongs_to_many :users
-  has_attachment :photo
-  has_attachment :video
+  has_attached_file :photo, path: Rails.configuration.x.paperclip_path
+  has_attached_file :video, path: Rails.configuration.x.paperclip_path
 
 end
