@@ -5,7 +5,7 @@ class QuiltController < ApplicationController
   ##
   # Display the main page.
   def index
-
+    @squares = Square.all
   end
 
 end
