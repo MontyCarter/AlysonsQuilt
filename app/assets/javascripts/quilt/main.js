@@ -14,6 +14,13 @@ $('document').ready(function() {
 
 	})
 
+	$(window).resize(function() {
+
+	    $('.grid').masonry();
+
+	});
+
     })
 
 });
+
