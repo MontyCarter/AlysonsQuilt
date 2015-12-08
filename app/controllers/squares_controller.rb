@@ -29,4 +29,11 @@ class SquaresController < ApplicationController
     end
   end
 
+  def new
+    # Make a new square for the form (doesn't save to db)
+    @square = Square.new
+    # Make up two new users to start form with (doesn't save to db)
+    2.times { @square.users.build }
+  end
+
 end

@@ -5,17 +5,15 @@ Rails.application.routes.draw do
 
   # Assume HOST = http://www.alysonsquilt.com
 
-  # HOST/ (ROOT)
-  # Routes to QuiltController#index.
-  root 'quilt#index'
+  # GET HOST/ (ROOT)
+  # Routes to QuiltsController#index.
+  root 'quilts#index'
 
-  # HOST/quilt
-  # Routes to QuiltController#index.
-  get 'quilt', to: 'quilt#index'
+  # Use standard Rails routes for HOST/quilts
+  resources :quilts
 
-  # HOST/squares
-  # Routes to SquareController#index.
-  get 'squares', to: 'squares#index'
+  # Use standard Rails routes for HOST/squares
+  resources :squares
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

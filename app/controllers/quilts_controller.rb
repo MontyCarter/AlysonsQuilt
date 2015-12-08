@@ -1,6 +1,6 @@
 ##
 # This services the main page, http://host.com/
-class QuiltController < ApplicationController
+class QuiltsController < ApplicationController
 
   ##
   # Display the main page.

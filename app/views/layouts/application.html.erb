@@ -20,12 +20,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
 	</button>
-	<a class="navbar-brand" href="#">Alyson's Quilt</a>
+	<%= link_to "Alyson's Quilt", quilts_path, class: 'navbar-brand' %>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapsed-part">
 	<ul class="nav navbar-nav navbar-right">
-          <li><a href="#">New Square</a></li>
+          <li><%= link_to 'New Square', new_square_path %></li>
 	</ul>
       </div>
     </div>

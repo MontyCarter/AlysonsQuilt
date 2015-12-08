@@ -3,6 +3,9 @@ class Square < ActiveRecord::Base
   # Join tables
   has_and_belongs_to_many :users
 
+  # Used in the new square form
+  accepts_nested_attributes_for :users
+
   # Attachments
   has_attached_file(:photo,       
                     path: Rails.configuration.x.paperclip_path,
