@@ -29,9 +29,9 @@ module Quilt
     # Paperclip, path to attachments (environments/production.rb 
     # overwrites this)
     config.x.paperclip_path = 
-      ':rails_root/public/dev/:attachment/:id/:style/:filename'
+      ':rails_root/public/dev/:attachment/:id/:style/:style.:content_type_extension'
     config.x.paperclip_url = 
-      '/dev/:attachment/:id/:style/:filename'
+      '/dev/:attachment/:id/:style/:style.:content_type_extension'
 
     # Allow access to files in public/ dir. This is only necessary in
     # dev and maybe test (for e.g. WEBRick)

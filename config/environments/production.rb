@@ -80,7 +80,7 @@ Rails.application.configure do
   # Paperclip, path to attachments (capistrano will not delete stuff in
   # the system folder)
   config.x.paperclip_path = 
-    ':rails_root/public/system/:attachment/:id/:style/:filename'
+    ':rails_root/public/system/:attachment/:id/:style/:style.:content_type_extension'
   config.x.paperclip_url = 
-    '/system/:attachment/:id/:style/:filename'
+    '/system/:attachment/:id/:style/:style.:content_type_extension'
 end
