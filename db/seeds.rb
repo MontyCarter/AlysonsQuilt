@@ -11,34 +11,22 @@
 #
 if not Rails.env.production?
 
-  User.create(
-              [].tap do |a|
-                16.times do |i|
-                  a << { 
-                    first_name: "fname#{i + 1}",
-                    last_name: "lname#{i + 1}"
-                  }
-                end
-              end
+  # Square.create(
+  #               [].tap do |a|
+  #                 16.times do |i|
+  #                   a << {
+  #                     message: "This is message #{i + 1}.",
+  #                     users: [ User.find_by(first_name: "fname#{i + 1}") ],
 
-              )
+  #                     # Attachments
+  #                     photo_file_name: "photo.png",
+  #                     video_file_name: "video.mp4",
+  #                     video_thumb_file_name: "thumb.png"
 
-  Square.create(
-                [].tap do |a|
-                  16.times do |i|
-                    a << {
-                      message: "This is message #{i + 1}.",
-                      users: [ User.find_by(first_name: "fname#{i + 1}") ],
+  #                   }
+  #                 end
+  #               end
 
-                      # Attachments
-                      photo_file_name: "photo.png",
-                      video_file_name: "video.mp4",
-                      video_thumb_file_name: "thumb.png"
-
-                    }
-                  end
-                end
-
-                )
+  #               )
 
 end
