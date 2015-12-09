@@ -8,7 +8,8 @@
   <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-controller="_<%= controller_name %>" 
+      data-action="_<%= action_name %>" >
   <nav class="navbar navbar-default">
     
     <div class="container-fluid">
@@ -33,13 +34,7 @@
 
   <div class='container-fluid'>
 
-    <div class='col-md-2'></div>
-
-    <div class='col-md-8'>
       <%= yield %>
-    </div>
-
-    <div class='col-md-2'></div>
 
   </div>
 

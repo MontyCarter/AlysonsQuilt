@@ -1,4 +1,20 @@
 
+<div class='col-md-3'></div>
+
+<div class='col-md-6'>
+
+<h2>New Square</h2>
+
+<% if @errors %>
+
+  <div class='alert alert-danger' role='alert'>
+    <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true' 
+	  style='margin-right:5px;'></span>
+    <span class='sr-only'>Error:</span>
+    <%= "Errors: #{@errors.join(', ') + '.'}" %>
+  </div>
+
+<% end %>
 
 <%= form_for @square, url: {action: 'create'} do |squares_form| %>
 
@@ -10,7 +26,7 @@
 
   <div class='form-group'>
     <%= squares_form.label :signature %>
-    <%= squares_form.text :signature, class: 'form-control',
+    <%= squares_form.text_field :signature, class: 'form-control',
 	placeholder: 'Signature' %>
   </div>
 
@@ -23,7 +39,8 @@
   </div>
 
   <div class='form-group'>
-    <%= squares_form.submit 'Create', class: 'btn btn-primary' %>
+    <%= squares_form.submit 'Create', class: 'btn btn-primary',
+	data: { disable_with: 'Uploading...' } %>
   </div>
 
   <div class='form-group'>
@@ -32,3 +49,8 @@
   </div>
 
 <% end %>
+
+</div>
+
+<div class='col-md-3'></div>
+

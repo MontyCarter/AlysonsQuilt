@@ -30,4 +30,28 @@ class SquaresController < ApplicationController
     @square = Square.new
   end
 
+  def create
+    @square = Square.new(square_params)
+    respond_to do |format|
+      if @square.save
+        format.html { redirect_to square_path(@square.id) }
+      else
+        @errors = @square.errors.full_messages
+        format.html { render action: :new }
+      end
+    end
+  end
+
+  def show
+    @square = Square.find(params[:id])
+  end
+
+  # --------------------------------------------------
+
+  private
+
+  def square_params
+    params.require(:square).permit(:message, :signature, :media)
+  end
+
 end

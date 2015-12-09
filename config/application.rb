@@ -31,7 +31,7 @@ module Quilt
     config.x.paperclip_path = 
       ':rails_root/public/dev/:attachment/:id/:style/:filename'
     config.x.paperclip_url = 
-      'dev/:attachment/:id/:style/:filename'
+      '/dev/:attachment/:id/:style/:filename'
 
     # Allow access to files in public/ dir. This is only necessary in
     # dev and maybe test (for e.g. WEBRick)
