@@ -16,15 +16,11 @@ class SquaresController < ApplicationController
         # Return everything in a squares and associated users, 
         # except created/updated at
         #
-        squares.as_json(only: [:message],
-                        methods: [:photo_thumb_url,
-                                  :photo_url,
-                                  :video_thumb_url,
-                                  :video_url],
-                        include: 
-                        { users: 
-                          { except: [:created_at, :updated_at] }
-                          })
+        squares.as_json(only: [:message, :signature],
+                        methods: [:media_small_url,
+                                  :media_medium_url,
+                                  :media_large_url,
+                                  :media_url])
       }
     end
   end
@@ -32,8 +28,6 @@ class SquaresController < ApplicationController
   def new
     # Make a new square for the form (doesn't save to db)
     @square = Square.new
-    # Make up two new users to start form with (doesn't save to db)
-    2.times { @square.users.build }
   end
 
 end
