@@ -63,7 +63,7 @@ module Paperclip
 
       # Build thumbnail
       begin
-        success = Paperclip.run('ffmpeg', cmd)
+        success = Paperclip.run('avconv', cmd)
       rescue Paperclip::Error
         raise Paperclip::Error, "There was an error processing the thumbnail for #{@basename}" if whiny
       end
