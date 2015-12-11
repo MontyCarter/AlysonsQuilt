@@ -1,14 +1,4 @@
 
-    // process regular squares
-    // create divs with inner images
-    //   -- thumbnail
-    //   -- signature?
-    // set up modals
-    //   -- video/photo
-    //   -- message
-    //   -- signature
-
-
 function quilts_index() {
 
     var NUM_FILLER_SQUARES = 10;
@@ -48,6 +38,71 @@ function quilts_index() {
 	});
     }
 
+    function setup_real_square_js() {
+
+	// On click show the modal
+	$('.real-square').click(function() {
+
+	    // Look up the square, using the index
+	    var idx = Number($(this).data('square-idx'))
+	    var square = REAL_SQUARES[idx]
+
+	    // Set the modal's title, media, and message
+	    $('#square-modal-title').html('From: ' + square.signature);
+
+	    if (square['video?']) {
+		$('#square-modal-media').html(
+			'<video id="square-modal-video" controls="">' +
+			'<source src="' + square.media_url + '">' +
+			'Your browser does not support the video tag.' +
+			'</video>'
+		);
+	    } else {
+		$('#square-modal-media').html(
+		    '<img class="img-responsive" src="' + square.media_url + '" alt="media" />');
+	    }
+
+	    $('#square-modal-message').html(square.message);
+
+	    // Show the modal
+	    $('#square-modal').modal('show');
+
+	});
+
+    }
+
+    function setup_modal() {
+	
+	$('#square-modal-close-bottom').click(function() {
+
+	    // Pause video when closing modal
+	    if ($('#square-modal-video').length > 0) {
+
+		$('#square-modal-video')[0].pause();
+
+	    }
+
+	    // Close modal
+	    $('#square-modal').modal('hide');
+
+	});
+
+	$('#square-modal-close-top').click(function() {
+
+	    // Pause video when closing modal
+	    if ($('#square-modal-video').length > 0) {
+
+		$('#square-modal-video')[0].pause();
+
+	    }
+
+	    // Close modal
+	    $('#square-modal').modal('hide');
+
+	});
+
+    }
+
     function shuffle(o){
 	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), 
 	    x = o[--i], o[i] = o[j], o[j] = x);
@@ -68,20 +123,9 @@ function quilts_index() {
 	
 	$('#quilt-main').html(html);
 
-	$('.real-square').click(function() {
+	setup_real_square_js();
 
-	    var idx = Number($(this).data('square-idx'))
-	    var square = REAL_SQUARES[idx]
-
-	    $('#square-modal-title').html(square.signature);
-	    $('#square-modal-media').html(
-		'<img src="' + square.media_medium_url + '" alt="media" />');
-	    $('#square-modal-message').html(
-		'<p>' + square.message + '</p>');
-
-	    $('#square-modal').modal('show');
-
-	});
+	setup_modal();
 
     }
 
