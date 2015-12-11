@@ -27,7 +27,13 @@ alysonsquilt = {
     _quilts: {
         init: function() { }, // no op for now
         _index: quilts_index,
+    },
+
+    _squares: {
+        init: function() { }, // no op for now
+        _new: squares_new,
     }
+
 };
      
 UTIL = {

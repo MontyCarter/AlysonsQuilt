@@ -26,15 +26,6 @@ function quilts_index() {
 		// use percentages for grid column widths (see css)
 		percentPosition: true
 	    });
-
-	    $(window).resize(function() {
-
-		$grid.masonry();
-
-		// todo: resize images?
-
-	    });
-
 	});
     }
 
@@ -180,7 +171,7 @@ function quilts_index() {
 	}
 
 	// Build filler squares (multiples of 5, at least 5)
-	var num_fillers = 10 * Math.ceil((REAL_SQUARES.length + 5) / 5);
+	var num_fillers = 5 * Math.ceil((REAL_SQUARES.length + 5) / 5);
 	var filler_squares = build_filler_squares(num_fillers);
 
 	// Build quilt with all squares
