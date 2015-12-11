@@ -1,9 +1,10 @@
 
-[data-controller='quilt'][data-action='index']
+[data-controller='_quilts'][data-action='_index']
 {
     .grid-sizer,
     .grid-item 
     { 
-	width: 20%; 
+	width: 25%; 
+	padding-bottom: 5px;
     }
 }
