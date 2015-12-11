@@ -16,7 +16,7 @@ class Square < ActiveRecord::Base
   validates :signature, presence: true
   validates_attachment(:media, presence: true,
                        content_type: { content_type: /\A((image\/.*)|(video\/.*))\Z/ },
-                       size: { in: 0..10.megabytes })
+                       size: { in: 0..100.megabytes })
 
   def media_small_url
       self.media.url(:small)
