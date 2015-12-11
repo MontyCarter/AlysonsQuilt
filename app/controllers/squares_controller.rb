@@ -20,7 +20,8 @@ class SquaresController < ApplicationController
                         methods: [:media_small_url,
                                   :media_medium_url,
                                   :media_large_url,
-                                  :media_url])
+                                  :media_url,
+                                  :video?])
       }
     end
   end

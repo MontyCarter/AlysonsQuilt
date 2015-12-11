@@ -1,25 +1,12 @@
 
+<div class='col-md-3'></div>
 
-<%= stylesheet_link_tag 'quilt/grid.css', media: 'all' %>
-<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js' %>
-<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js' %>
-<%= javascript_include_tag 'quilt/main.js' %>
+<div id='quilt-main' class='col-md-6'>
+  
+  <h4>Loading...</h4>
 
-<div class='container-fluid'>
-  <div class='grid'>
-
-    <div class='grid-sizer'></div>
-
-    <% @squares.each do |square| %>
-
-    <div class='grid-item'>
-
-      <img src="<%= square.photo_thumb_url %>" alt='thumb' />
-
-    </div>
-
-    <% end %>
-
-  </div>
 </div>
+
+<div class='col-md-3'></div>
+
 
