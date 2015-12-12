@@ -12,11 +12,11 @@ $lg_width: 1200px;
     { 
 
 	/* extra small, portrait */
-	width: 50%;
+	width: 40%;
 
 	/* extra small, landscape */
 	@media screen and (orientation: landscape) {
-	    width: 33%;
+	    width: 30%;
 	}
 	
 	/* small, portrait */
