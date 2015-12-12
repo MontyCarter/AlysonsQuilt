@@ -33,7 +33,11 @@ class Square < ActiveRecord::Base
   end
 
   def media_url
+    if video?
+      self.media.url
+    else
       self.media.url(:original_no_exif)
+    end
   end
 
   def video?

@@ -25,6 +25,7 @@ class SquaresController < ApplicationController
       }
       #
       # Quick hack - just redirect back to the quilt
+      #
       format.html { redirect_to quilts_path }
     end
   end
