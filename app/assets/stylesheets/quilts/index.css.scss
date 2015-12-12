@@ -1,10 +1,54 @@
 
+/* xs is default, just like bootstrap */
+$sm_width: 768px;
+$md_width: 992px;
+$lg_width: 1200px;
+
 [data-controller='_quilts'][data-action='_index']
 {
+
     .grid-sizer,
     .grid-item 
     { 
-	width: 25%; 
-	padding-bottom: 5px;
+
+	/* extra small, portrait */
+	width: 50%;
+
+	/* extra small, landscape */
+	@media screen and (orientation: landscape) {
+	    width: 33%;
+	}
+	
+	/* small, portrait */
+	@media screen and (min-width: $sm_width) {
+	    width: 25%;
+	}
+
+	/* small, landscape */
+	@media screen and (min-width: $sm_width) and (orientation: landscape) {
+	    width: 20%;
+	}
+
+	/* medium, portrait */
+	@media screen and (min-width: $md_width) {
+	    width: 20%;
+	}
+
+	/* medium, landscape */
+	@media screen and (min-width: $md_width) and (orientation: landscape) {
+	    width: 20%;
+	}
+
+	/* large, portrait */
+	@media screen and (min-width: $lg_width) {
+	    width: 20%;
+	}
+
+	/* large, landscape */
+	@media screen and (min-width: $lg_width) and (orientation: landscape) {
+	    width: 20%;
+	}
+
+	margin: 5px;
     }
 }

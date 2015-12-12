@@ -1,9 +1,21 @@
 
 function quilts_index() {
 
+    /* -------------------- "Globals" -------------------- */
+
     var NUM_FILLER_SQUARES = 10;
 
     var REAL_SQUARES = [ ]; // set in setup_quilt
+
+    /* 
+     * These correspond to the bootstrap size classes (e.g., col-md)
+     * See: http://getbootstrap.com/css/#grid-media-queries
+     */
+    var SM_VIEWPORT_SZ = 768;
+    var MD_VIEWPORT_SZ = 992;
+    var LG_VIEWPORT_SZ = 1200;
+
+    /* -------------------- Functions -------------------- */
 
     function init_masonry() {
 
@@ -63,15 +75,9 @@ function quilts_index() {
     }
 
     function setup_modal() {
-	
+
+	// Attach click handlers on close buttons
 	$('#square-modal-close-bottom').click(function() {
-
-	    // Pause video when closing modal
-	    if ($('#square-modal-video').length > 0) {
-
-		$('#square-modal-video')[0].pause();
-
-	    }
 
 	    // Close modal
 	    $('#square-modal').modal('hide');
@@ -80,15 +86,21 @@ function quilts_index() {
 
 	$('#square-modal-close-top').click(function() {
 
-	    // Pause video when closing modal
+	    // Close modal
+	    $('#square-modal').modal('hide');
+
+	});
+
+	// Attach event handler on modal hide (so we can handle
+	// case when user clicks/taps outside modal to close it)
+	$('#square-modal').on('hidden.bs.modal', function (e) {
+
+	    // If we're running a video, make sure we pause it
 	    if ($('#square-modal-video').length > 0) {
 
 		$('#square-modal-video')[0].pause();
 
 	    }
-
-	    // Close modal
-	    $('#square-modal').modal('hide');
 
 	});
 
@@ -120,17 +132,37 @@ function quilts_index() {
 
     }
 
+    function thumbnail_url(square_obj) {
+	var viewport_sz = $(window).width();
+
+	if (viewport_sz < MD_VIEWPORT_SZ) {
+
+	    /* Lump extra small and small into one */
+	    return square_obj.media_small_url;
+
+	} else if (viewport_sz < LG_VIEWPORT_SZ) {
+
+	    return square_obj.media_medium_url;
+
+	} else { 
+
+	    return square_obj.media_large_url;
+
+	}
+    }
+
     function build_filler_square_div() {
 	var str = '<div class="grid-item">' +
-	    '<img src="' + this.media_medium_url + '" alt="pattern" />' +
+	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
 	return str;
     }
 
     function build_real_square_div() {
+
 	var str = '<div class="grid-item real-square" ' +
 	    'data-square-idx="' + this.square_idx + '">' +
-	    '<img src="' + this.media_medium_url + '" alt="pattern" />' +
+	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
 	return str;
     }
@@ -188,6 +220,8 @@ function quilts_index() {
 	$('#quilt-main').html('<p>Failed!</p>');
 
     }
+    
+    /* -------------------- "Main" -------------------- */
 
     $.get('/squares')
     .done( setup_quilt )
