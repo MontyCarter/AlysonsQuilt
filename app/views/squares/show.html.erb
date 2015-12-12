@@ -14,9 +14,13 @@
 
   <p>Here is your square:</p>
 
-  <p><strong>Message</strong></p>
+  <% if @square.message and @square.message != "" %>
 
-  <p><%= @square.message %></p>
+    <p><strong>Message</strong></p>
+
+    <p><%= @square.message %></p>
+
+  <% end %>
 
   <p><strong>Signature</strong></p>
 

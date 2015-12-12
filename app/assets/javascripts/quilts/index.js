@@ -65,7 +65,22 @@ function quilts_index() {
 		    '<img class="img-responsive" src="' + square.media_url + '" alt="media" />');
 	    }
 
-	    $('#square-modal-message').html(square.message);
+	    if (square.message && square.message != "") {
+
+		// Insert message into <p>
+		$('#square-modal-message').html(square.message);
+		
+		// Make sure message shows up (may have been hidden from
+		// prior square view that had a null/blank message)
+		$('#square-modal-message-div').show();
+
+	    } else {
+
+		// Hide message div, no message to show
+		$('#square-modal-message-div').hide();
+
+	    }
+
 
 	    // Show the modal
 	    $('#square-modal').modal('show');
