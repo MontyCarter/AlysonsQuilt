@@ -7,12 +7,14 @@ class Square < ActiveRecord::Base
                     :styles => { 
                       small:  '100',  # width = 100, height = preserve ratio
                       medium: '200',  # ditto
-                      large:  '300' },# ditto
+                      large:  '300',  # ditto
+                      original_no_exif: ''},
                     :processors => lambda { |a| 
                       a.video? ? [:video_thumbnail] : [:thumbnail]
-                    })
+                    },
+                    convert_options: { all: '-strip' }
+                    )
 
-  validates :message, presence: true
   validates :signature, presence: true
   validates_attachment(:media, presence: true,
                        content_type: { content_type: /\A((image\/.*)|(video\/.*))\Z/ },
@@ -31,7 +33,7 @@ class Square < ActiveRecord::Base
   end
 
   def media_url
-      self.media.url
+      self.media.url(:original_no_exif)
   end
 
   def video?
