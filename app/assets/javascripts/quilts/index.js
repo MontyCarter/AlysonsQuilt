@@ -51,7 +51,7 @@ function quilts_index() {
 	    var square = REAL_SQUARES[idx]
 
 	    // Set the modal's title, media, and message
-	    $('#square-modal-title').html('From: ' + square.signature);
+	    $('#square-modal-title').html(square.signature);
 
 	    if (square['video?']) {
 		$('#square-modal-media').html(
