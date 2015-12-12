@@ -23,6 +23,9 @@ class SquaresController < ApplicationController
                                   :media_url,
                                   :video?])
       }
+      #
+      # Quick hack - just redirect back to the quilt
+      format.html { redirect_to quilts_path }
     end
   end
 
