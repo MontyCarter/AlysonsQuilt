@@ -43,7 +43,7 @@ function quilts_index() {
 
 	    if (square['video?']) {
 		$('#square-modal-media').html(
-			'<video id="square-modal-video" controls="">' +
+			'<video class="img-responsive" id="square-modal-video" controls="">' +
 			'<source src="' + square.media_url + '">' +
 			'Your browser does not support the video tag.' +
 			'</video>'

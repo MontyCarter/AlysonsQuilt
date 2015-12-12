@@ -11,7 +11,7 @@
     <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true' 
 	  style='margin-right:5px;'></span>
     <span class='sr-only'>Error:</span>
-    <%= "Errors: #{@errors.join(', ') + '.'}" %>
+    <span><%= "Errors: #{@errors.join(', ') + '.'}" %></span>
   </div>
 
 <% end %>
@@ -31,7 +31,7 @@
   </div>
 
   <div class='form-group'>
-    <%= squares_form.label :media, class: 'btn btn-default' do %>
+    <%= squares_form.label :media, class: 'btn btn-default btn-lg' do %>
       <%= squares_form.file_field :media, style: 'display:none',
 	  accept: 'image/*|video/*'%>
       Attach Photo or Video
@@ -39,15 +39,27 @@
     <span id='square_media_status' style='margin-left:5px;'></span>
   </div>
 
-  <div class='form-group'>
-    <%= squares_form.submit 'Create', class: 'btn btn-primary',
-	data: { disable_with: 'Uploading...' } %>
-  </div>
+  <hr>
 
-  <div class='form-group'>
-    <%= link_to 'Cancel', quilts_path, class: 'btn btn-default',
-  	role: 'button' %>
-  </div>
+  <div class='row'>
+
+    <div class='col-md-6 text-left'>
+
+      <div class='form-group'>
+	<%= squares_form.submit 'Create', class: 'btn btn-primary btn-lg',
+	    data: { disable_with: 'Uploading...' } %>
+      </div>
+
+    </div>
+
+    <div class='col-md-6 text-right'>
+
+      <div class='form-group'>
+	<%= link_to 'Cancel', quilts_path, class: 'btn btn-default btn-lg',
+  	    role: 'button' %>
+      </div>
+
+    </div>
 
 <% end %>
 
