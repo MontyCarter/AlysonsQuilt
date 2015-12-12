@@ -7,16 +7,21 @@ $lg_width: 1200px;
 [data-controller='_quilts'][data-action='_index']
 {
 
+    .grid 
+    {
+	margin: 0 auto;
+    }
+
     .grid-sizer,
     .grid-item 
     { 
 
 	/* extra small, portrait */
-	width: 40%;
+	width: 50%;
 
 	/* extra small, landscape */
 	@media screen and (orientation: landscape) {
-	    width: 30%;
+	    width: 33%;
 	}
 	
 	/* small, portrait */
@@ -49,6 +54,6 @@ $lg_width: 1200px;
 	    width: 20%;
 	}
 
-	margin: 5px;
+	padding: 5px;
     }
 }
