@@ -6,8 +6,11 @@ set :branch, "master"
 # on the server. They will be symlink'd to the exact same spot in the
 # deployment.
 #
-# .env contains the secret key used in config/secrets.yml.
+# .env              contains the secret key used in config/secrets.yml.
+# public/system     contains media files - photos, videos (so that they are
+#                   preserved across deployments)
 set :linked_files, ['.env']
+set :linked_files, ['public/system']
 
 # server-based syntax
 # ======================
