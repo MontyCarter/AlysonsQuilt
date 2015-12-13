@@ -58,13 +58,37 @@
 
 	padding: 5px;
 
+	border-radius: 10px;
 
-	.is-loading
-	{
-	    background-color: white;
-	    background-image: url('/images/spinner.svg');
-	}	
+	/* Spinners -------------------------------------------------- */
 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: white;
+
+    }
+
+    .is-loading
+    {
+	background-color: white;
+	background-image: image-url('spinner.svg');
+    }
+
+    .is-broken
+    {
+	min-width: 100px;
+	min-height: 100px;
+	background-color: gray;
+	background-image: image-url('broken.png');
+    }
+
+    .grid-item.is-loading img,
+    .grid-item.is-broken img {
+	opacity: 0;
+    }
+
+    .grid-item img {
+	border-radius: 10px;
     }
 
 }

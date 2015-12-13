@@ -19,7 +19,7 @@ function quilts_index() {
 
     function init_masonry() {
 
-	$('.grid').imagesLoaded().done( function(instance) {
+	$('.grid').imagesLoaded().always( function(instance) {
 
 	    $grid = $('.grid')
 
@@ -143,7 +143,7 @@ function quilts_index() {
 	    
 	    if (!image.isLoaded) {
 
-		$container.removeClass('is-broken');
+		$container.addClass('is-broken');
 
 	    }
 
@@ -210,7 +210,7 @@ function quilts_index() {
     }
 
     function build_filler_square_div() {
-	var str = '<div class="grid-item">' +
+	var str = '<div class="grid-item is-loading">' +
 	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
 	return str;
@@ -218,7 +218,7 @@ function quilts_index() {
 
     function build_real_square_div() {
 
-	var str = '<div class="grid-item real-square" ' +
+	var str = '<div class="grid-item is-loading real-square" ' +
 	    'data-square-idx="' + this.square_idx + '">' +
 	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
