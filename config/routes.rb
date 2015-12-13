@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # Use standard Rails routes for HOST/squares
   resources :squares
 
+  # Use standard Rails routes for HOST/admin
+  resources :admin
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
