@@ -10,7 +10,7 @@ set :branch, "master"
 # public/system     contains media files - photos, videos (so that they are
 #                   preserved across deployments)
 set :linked_files, ['.env']
-set :linked_files, ['public/system']
+set :linked_dirs, ['public/system']
 
 # server-based syntax
 # ======================
