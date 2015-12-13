@@ -156,6 +156,7 @@ function quilts_index() {
 
 	    if (img_count == num_squares) {
 	    	$('#quilt-progress').hide();
+		$('.grid').removeClass('is-loading');
 	    }
 
 	});
@@ -172,7 +173,7 @@ function quilts_index() {
 
 	squares = shuffle(squares);
 
-	var html = '<div class="grid">';
+	var html = '<div class="grid is-loading">';
 	html +=        '<div class="grid-sizer"></div>';
 	
 	for (var i = 0; i < squares.length; i++)
@@ -210,7 +211,7 @@ function quilts_index() {
     }
 
     function build_filler_square_div() {
-	var str = '<div class="grid-item is-loading">' +
+	var str = '<div class="grid-item">' +
 	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
 	return str;
@@ -218,7 +219,7 @@ function quilts_index() {
 
     function build_real_square_div() {
 
-	var str = '<div class="grid-item is-loading real-square" ' +
+	var str = '<div class="grid-item real-square" ' +
 	    'data-square-idx="' + this.square_idx + '">' +
 	    '<img class="img-responsive" src="' + thumbnail_url(this) + '" alt="pattern" />' +
 	    '</div>';
