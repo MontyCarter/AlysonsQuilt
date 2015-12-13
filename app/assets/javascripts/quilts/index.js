@@ -23,12 +23,6 @@ function quilts_index() {
 
 	    $grid = $('.grid')
 
-	    // Masonry seems limited in that you have to display
-	    // the images for it to lay things out (even though
-	    // they have a 'layout complete' event, doesn't seem
-	    // to work correctly).
-	    $grid.show();
-
 	    // Do the layout
 	    $grid.masonry({
 		// square containers
@@ -141,7 +135,17 @@ function quilts_index() {
 
 	var img_count = 0;
 
-	$('.grid').imagesLoaded().progress(function() {
+	$('.grid').imagesLoaded().progress(function(imgLoad, image) {
+
+	    $container = $(image.img).parent();
+
+	    $container.removeClass('is-loading');
+	    
+	    if (!image.isLoaded) {
+
+		$container.removeClass('is-broken');
+
+	    }
 
 	    img_count++;
 
@@ -168,7 +172,7 @@ function quilts_index() {
 
 	squares = shuffle(squares);
 
-	var html = '<div class="grid" style="display:none;">';
+	var html = '<div class="grid">';
 	html +=        '<div class="grid-sizer"></div>';
 	
 	for (var i = 0; i < squares.length; i++)

@@ -57,5 +57,14 @@
 	}
 
 	padding: 5px;
+
+
+	.is-loading
+	{
+	    background-color: white;
+	    background-image: url('/images/spinner.svg');
+	}	
+
     }
+
 }
