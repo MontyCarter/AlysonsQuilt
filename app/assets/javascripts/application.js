@@ -32,6 +32,7 @@ alysonsquilt = {
     _squares: {
         init: function() { }, // no op for now
         _new: squares_new,
+	_show: squares_show,
     }
 
 };

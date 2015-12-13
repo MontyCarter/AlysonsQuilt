@@ -1,11 +1,13 @@
 
-/* xs is default, just like bootstrap */
-$sm_width: 768px;
-$md_width: 992px;
-$lg_width: 1200px;
-
 [data-controller='_quilts'][data-action='_index']
 {
+
+    /* quilt grid -------------------------------------------------- */
+
+    /* xs is default, just like bootstrap */
+    $sm_width: 768px;
+    $md_width: 992px;
+    $lg_width: 1200px;
 
     .grid 
     {

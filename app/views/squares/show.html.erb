@@ -37,8 +37,15 @@
 
   <% else %>
 
-    <img class="img-responsive" src="<%= @square.media_url %>" 
-	 alt='Your photo' />
+    <div id="img-div">
+
+      <%= image_tag 'spinner.svg', id: 'square-img-spinner' %>
+      <img class="img-responsive" style="display:none;" 
+	   src="<%= @square.media_url %>" 
+	   id="square-img"
+	   alt='Your photo' />
+      
+    </div>
 
   <% end %>
 

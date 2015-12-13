@@ -54,15 +54,31 @@ function quilts_index() {
 	    $('#square-modal-title').html(square.signature);
 
 	    if (square['video?']) {
+
+		$('#square-modal-media-spinner').hide();
+
 		$('#square-modal-media').html(
 			'<video class="img-responsive" id="square-modal-video" controls="">' +
 			'<source src="' + square.media_url + '">' +
 			'Your browser does not support the video tag.' +
 			'</video>'
 		);
+
 	    } else {
+
+		$('#square-modal-media-spinner').show();
+
 		$('#square-modal-media').html(
-		    '<img class="img-responsive" src="' + square.media_url + '" alt="media" />');
+		    '<img class="img-responsive" src="' + square.media_url + '" alt="media" id="square-modal-media-img" style="display:none;" />');
+
+		$('#square-modal-media').imagesLoaded(function() {
+
+		    $('#square-modal-media-spinner').hide();
+
+		    $('#square-modal-media-img').show();
+
+		});
+
 	    }
 
 	    if (square.message && square.message != "") {
@@ -121,6 +137,27 @@ function quilts_index() {
 
     }
 
+    function show_img_load_progress(num_squares) {
+
+	var img_count = 0;
+
+	$('.grid').imagesLoaded().progress(function() {
+
+	    img_count++;
+
+	    var percent_complete = Math.ceil((img_count / num_squares) * 100);
+
+	    $('#quilt-progress-bar').css(
+		{width: (percent_complete.toString() + '%')});
+
+	    if (img_count == num_squares) {
+	    	$('#quilt-progress').hide();
+	    }
+
+	});
+
+    }
+
     function shuffle(o){
 	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), 
 	    x = o[--i], o[i] = o[j], o[j] = x);
@@ -140,6 +177,8 @@ function quilts_index() {
 	html += '</div>';
 	
 	$('#quilt-main').html(html);
+
+	show_img_load_progress(squares.length);
 
 	setup_real_square_js();
 
@@ -232,7 +271,9 @@ function quilts_index() {
 
     function handle_failure(jqXHR, textStatus, errorThrown) {
 
-	$('#quilt-main').html('<p>Failed!</p>');
+	$('#quilt-progress').hide();
+
+	$('#quilt-main').html('<h4>Ruh roh, server error, contact Montgomery</h4>');
 
     }
     
